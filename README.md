@@ -4,7 +4,7 @@
 * Adds CMake 3.10.2 to use improved CUDA CMake integration
 * Adds miniconda with two environments to build Python 2.7 and 3.6 OpenCV bindings
 * Leverages conda to pull Intel MKL headers and shared libraries
-* Adds Eigen 3.3.4 
+* Adds Eigen 3.3.5 
 * Adds TBB
 * Builds OpenCV with all the above (OpenCV cmake generation downloads several other packages like Intel IPP)
 * Builds cv2 python module without CUDA and without Intel MKL to make wheel file slightly more portable (many apt-get package still required)

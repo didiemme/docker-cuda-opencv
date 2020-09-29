@@ -60,18 +60,17 @@ RUN cp /opt/conda/envs/ocvpy3/include/mkl*.h /usr/local/include\
 
 # Recent version of Eigen C++ - the folder inside the zip  is some kind of hash
 ENV EIGEN_VERSION="3.3.5"
-ENV EIGEN_SUBPATH="b3f3d4950030"
-RUN mkdir /temp \ 
-&& wget http://bitbucket.org/eigen/eigen/get/${EIGEN_VERSION}.zip -O /temp/eigen-${EIGEN_VERSION}.zip \
+RUN mkdir /temp \
+&& wget https://gitlab.com/libeigen/eigen/-/archive/${EIGEN_VERSION}/eigen-${EIGEN_VERSION}.zip -O /temp/eigen-${EIGEN_VERSION}.zip \
 && unzip /temp/eigen-${EIGEN_VERSION}.zip \
-&& cd /eigen-eigen-${EIGEN_SUBPATH}\
+&& cd /eigen-${EIGEN_VERSION}\
 && mkdir build\
 && cd build\
 && cmake .. \
 -DCMAKE_INSTALL_PREFIX=/usr/local\
 && make install\
 && rm -rf /temp\
-&& rm -rf /eigen-eigen-${EIGEN_SUBPATH}
+&& rm -rf /eigen-${EIGEN_VERSION}
 
 WORKDIR /
 
